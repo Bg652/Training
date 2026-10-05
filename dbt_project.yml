@@ -49,7 +49,7 @@ models:
 
 
 seeds: 
-  training: 
+  Training: 
     airbnb_room_type_reference_seed: 
       +column_types:
         room_type: STRING
@@ -60,5 +60,12 @@ seeds:
         is_active: BOOLEAN
         display_order: FLOAT64
         reference_code: FLOAT64
+
+snapshots:
+
+  Training:
+    +schema: RANDOMDS
+    +hard_deletes: 'ignore'
+    +enabled: true
 
 

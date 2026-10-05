@@ -1,0 +1,22 @@
+{% snapshot snap_hosts6 %}
+
+{{
+    config(
+        unique_key='host_id',
+        strategy='check',
+        check_cols='all',
+        dbt_valid_to_current="timestamp('9999-12-31 00:00:00 UTC')",
+        hard_deletes='new_record',
+        snapshot_meta_column_names={
+            'dbt_valid_from': 'effective_date',
+            'dbt_valid_to': 'expiration_date',
+            'dbt_scd_id': 'scd_id',
+            'dbt_is_deleted': 'is_deleted'
+        }
+    )
+}}
+
+select *
+from {{ ref('src_hosts') }}
+
+{% endsnapshot %}

@@ -1,0 +1,9 @@
+version: 2
+
+models:
+
+  - name: seed_model
+    description: "Model based on airbnb_room_type_reference_seed."
+
+  - name: seed_model_edited
+    description: "Model based on airbnb_room_type_reference_seed_edited."
